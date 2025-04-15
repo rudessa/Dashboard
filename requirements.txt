@@ -1,2 +1,4 @@
 dash
-plotly
+plotly[express]
+numpy
+pandas
