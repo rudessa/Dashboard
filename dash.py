@@ -1,5 +1,4 @@
-import dash
-from dash import dcc, html, Input, Output
+from dash import dcc, html, Input, Output, Dash, no_update
 import plotly.express as px
 import plotly.graph_objects as go
 
@@ -22,7 +21,7 @@ external_stylesheets = [
     'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap'
 ]
 
-application = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+application = Dash(__name__, external_stylesheets=external_stylesheets)
 
 # Color scheme
 colors = {
@@ -336,7 +335,7 @@ def update_line_chart(selected_countries, y_measure, theme, show_legend):
 def update_slider_on_click(clickData):
     if clickData:
         return clickData['points'][0]['x']
-    return dash.no_update
+    return no_update
 
 @application.callback(
     Output('bubble-chart', 'figure'),
